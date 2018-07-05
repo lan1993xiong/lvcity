@@ -1,5 +1,11 @@
 package com.gpnu.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +39,17 @@ public class BannerController {
 	
 	@RequestMapping("/add")
 	@ResponseBody
-	public Object add(Banar banar){
-	
+	public Object add(Banar banar,HttpServletRequest request,@RequestParam(value="file",required=false)MultipartFile myFile) throws IllegalStateException, IOException{
+	    
+		String filename = myFile.getOriginalFilename();
+		ServletContext sc = request.getSession().getServletContext();
+	    String path = sc.getRealPath("\\images") + "\\"; 
+	    myFile.transferTo(new File(path + filename));
+	    String realpath = "images/" + filename;
+		
+	    banar.setImage(realpath);
+		
+		
 		commonManger.save(banar);
        
 		Message message = new Message();

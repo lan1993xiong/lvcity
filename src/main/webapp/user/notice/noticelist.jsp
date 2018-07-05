@@ -17,10 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <div class="rightbar">
           	<div class="bread">
-          		<a href="#" style="float:left">首页</a><span style="float:left">>${noticetype }</span>
-          		<form method="post" action="<%=basePath %>noticeController/findContent.do?ntid=${ntid }&pageNow=1">
+          		<span style="float:left">${noticetype }</span>
+          		<form method="post" action="<%=basePath %>noticeTypeController/search.do?pageNow=1">
 	          		<div style="width:200px;height:25px;float:right;">
-	          			<input type="text" name="gjc" style="float:left;width:100px;height:25px;margin-top:5px;"/>
+	          			<input type="typr" name="ntid" style="float:left;width:100px;height:25px;margin-top:5px;"/>
 	          			<input type="submit" style="width:50px;height:30px;float:left;margin-top:5px;" value="搜索"/>
 	          		</div>
           		</form>
@@ -45,14 +45,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
            		<div class="line">
                    <div class="fy_left">
-                       共${1 }条&nbsp;|&nbsp;每页${5 }条&nbsp;|&nbsp;共${1 }页
+                       共${rowCount }条&nbsp;|&nbsp;每页${18 }条&nbsp;|&nbsp;共${pageCount}页
                    </div>
                    <div class="fy_right">
-                       <div class="fy"><a href="<%=basePath%>/noticetype/search2.do?ntid=${ntid}&gjc=${gjc }&pageNow=${pageCount }">尾页</a></div>
-                       <div class="fy"><a href="<%=basePath%>/noticetype/search2.do?ntid=${ntid}&gjc=${gjc }&pageNow=${pageNow+1 }">下一页</a></div>
+                       <div class="fy"><a href="<%=basePath%>noticeTypeController/ByPage.do?pageNow=${pageCount}&pageCount=${pageCount}&rowCount=${rowCount}">尾页</a></div>
+                       <div class="fy"><a href="<%=basePath%>noticeTypeController/ByPage.do?pageNow=${pageNow+1>pageCount?pageCount:pageNow+1 }&pageCount=${pageCount}&rowCount=${rowCount}">下一页</a></div>
                        <div class="fy"><a>${pageNow }</a></div>
-                       <div class="fy"><a href="<%=basePath%>/noticetype/search2.do?ntid=${ntid}&gjc=${gjc }&pageNow=${pageNow-1 }">上一页</a></div>
-                       <div class="fy"><a href="<%=basePath%>/noticetype/search2.do?ntid=${ntid}&gjc=${gjc }&pageNow=1">首页</a></div>
+                       <div class="fy"><a href="<%=basePath%>noticeTypeController/ByPage.do?pageNow=${pageNow-1<=0?1:pageNow-1}&pageCount=${pageCount}&rowCount=${rowCount}">上一页</a></div>
+                       <div class="fy"><a href="<%=basePath%>noticeTypeController/ByPage.do?pageNow=1">首页</a></div>
+			        </div>
                    </div>
                </div>
 

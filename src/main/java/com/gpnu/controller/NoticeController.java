@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gpnu.entity.Message;
+import com.gpnu.entity.Page;
 import com.gpnu.manger.CommonManger;
 import com.gpnu.table.Article;
 import com.gpnu.table.Contact;
+import com.gpnu.table.Food;
 import com.gpnu.table.Foodtype;
 import com.gpnu.table.Notice;
 import com.gpnu.table.Noticetype;
@@ -57,26 +59,11 @@ public class NoticeController {
 		return commonManger.findAll("Notice");
     }
 	
-	@RequestMapping("/noticeView")
-	public ModelAndView NoticeView(){
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("user/notice/noticelist");
-		List<Contact> listContact = commonManger.findAll("Contact");
-		List<Notice> noticelist = commonManger.findAll("Notice");
-		List<Article> articlelist = commonManger.findAll("Article");
-		modelAndView.addObject("contact",listContact.get(0));
-		modelAndView.addObject("noticelist",noticelist);
-		modelAndView.addObject("articlelist",articlelist);
-		return modelAndView;
-	}
 	
 	@RequestMapping("/noticeArtice")
 	public ModelAndView NoticeArticle( Integer ntid,Integer aid){
 		
 		ModelAndView modelAndView = new ModelAndView();
-		
-	   // Article article =	commonManger.get(Article.class, aid);
-	   // System.out.print(article.getContent());
 		Article article = commonManger.findClassByIdAndTableName("Article", "aid",aid);
 		modelAndView.addObject("article",article);
 		modelAndView.setViewName("user/notice/noticetext");
@@ -91,6 +78,8 @@ public class NoticeController {
 		Noticetype noticetype = commonManger.findClassByIdAndTableName("Noticetype", "ntid",ntid);
 		return noticetype;
 	}
+	
+	
 	
 
 }

@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<c:if test="${!empty noticetypelist}">
 				<c:forEach items="${noticetypelist}" var="noticetype">
 
-        	<!-- <li><h3><a target="notice" href="<%=basePath%>/noticeController/.do?ntid=${notice.noticetype.ntid}&pageNow=1">${notice.noticetype.nt}</a></h3></li> -->
+        	<li><h3><a target="notice" href="<%=basePath%>noticeTypeController/search.do?ntid=${noticetype.ntid}&pageNow=1">${noticetype.nt}</a></h3></li>
 
         </c:forEach>
 			</c:if>
@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             </div>
 			
-			<iframe id="notice" name="notice" src="<%=basePath%>/noticeController/noticeView.do?ntid=${firstnoticetypeid}&pageNow=1"  style="float:right;width:712px;height:665px;border:1px solid #cccccc;background-color:white;"></iframe>
+			<iframe id="notice" name="notice" src="<%=basePath%>noticeTypeController/noticelist.do?pageNow=1"  style="float:right;width:712px;height:665px;border:1px solid #cccccc;background-color:white;"></iframe>
 
 
 		<!--content end--> 

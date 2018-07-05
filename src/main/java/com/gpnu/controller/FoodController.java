@@ -49,7 +49,7 @@ public class FoodController {
 		ServletContext sc = request.getSession().getServletContext();
 	    String path = sc.getRealPath("\\images") + "\\"; 
 	    myFile.transferTo(new File(path + filename));
-	    String realpath = path + filename;
+	    String realpath = "images/" + filename;
 		
 	    food.setImage(realpath);
 	    

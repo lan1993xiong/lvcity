@@ -141,7 +141,7 @@
 			document.getElementById('xmTanImg').src = '';
 			$('#banar_dlg').dialog('open').dialog('setTitle', '新增');
 			$('#banar_fm').form('clear');
-			url = 'bannerController/addBanner.do';
+			url = 'bannerController/add.do';
 		}
 		function editBanar() {
 			var imageinput = document.getElementsByName('image');
@@ -151,7 +151,7 @@
 			if (row) {
 				$('#banar_dlg').dialog('open').dialog('setTitle', '编辑');
 				$('#banar_fm').form('load', row);
-				url = 'bannerController/editBanar.do?banarid=' + row.banarid;
+				url = 'bannerController/add.do?banarid=' + row.banarid;
 			}
 		}
 		function saveBanar() {

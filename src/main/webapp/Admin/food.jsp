@@ -25,18 +25,10 @@
 	border-bottom: 1px solid #ccc;
 }
 
-.fitem {
-	
+.com-gpnu-group{
+    display: inline;
 }
 
-.fitem label {
-	display: inline-block;
-	width: 80px;
-}
-
-.fitem input {
-	width: 160px;
-}
 </style>
 
 
@@ -88,24 +80,27 @@
 			iconCls="icon-remove" plain="true" onclick="destroyfood()">删除</a>
 	</div>
 
-	<div id="food_dlg" class="easyui-dialog" style="padding: 10px 20px"
+	<div id="food_dlg" class="easyui-dialog" style="width:700px;height: 600px"
 		closed="true" buttons="#food_dlg-buttons">
 		<div class="ftitle" style="margin:auto;">详细信息</div>
 		<!-- enctype="multipart/form-data" -->
-		<form id="food_fm" method="post" novalidate enctype="multipart/form-data">
+		<form id="food_fm" method="post" style="width:100%;height: 100%" novalidate enctype="multipart/form-data">
 			
-			<div class="fitem">
-				<label>美食名称:</label><input name="fname" class="easyui-textbox"
-					required="true">
+			<div class="com-gpnu-group">
+				<label>美食名称:</label>
+				<input name="fname" class="easyui-textbox" required="true">
 			</div>
-			 <div class="fitem">
-				<label>上传图片:</label><input name="file" id="imgPicker" type="file"  onchange="xmTanUploadImg(this)">
+			 <div class="com-gpnu-group">
+				<label>上传图片:</label>
+				<input name="file" id="imgPicker" type="file"  onchange="xmTanUploadImg(this)">
 			</div>
-			<div class="fitem" style="display:none">
-				<label>图片路径:</label><input class="easyui-textbox" name="image" >
+			<div class="com-gpnu-group" style="display:none">
+				<label>图片路径:</label>
+				<input class="easyui-textbox" name="image" >
 			</div>
-			<div class="fitem" style="margin-top:10px;">
-				<label>浏览图片:</label><img id="xmTanImg" width="50px" height="50px" src=""/>
+			<div class="com-gpnu-group" style="margin-top:10px;">
+				<label>浏览图片:</label>
+				<img id="xmTanImg" width="50px" height="50px" src=""/>
 			</div>
 			
 			   <script type="text/javascript">            
@@ -153,16 +148,16 @@
 		            }
 		        </script>
 			
-			<div class="fitem" >
+			<div class="com-gpnu-group" >
 				<label>美食类型:</label>
 				<select name="ftid" id="mslx">	
 				</select>
 			</div>
-			<div class="fitem">
-				<label>文章名称:</label><input name="articlename" class="easyui-textbox"
-					required="true">
+			<div class="com-gpnu-group">
+				<label>文章名称:</label>
+				<select name="articlename" class="easyui-combobox" required="true">
 			</div>
-			<div class="fitem" id="wzlx2">
+			<div class="com-gpnu-group" id="wzlx2">
 				<label>文章类型:</label>
 				<select name="atid" id="wzlx">	
 				</select>
@@ -170,8 +165,8 @@
 			
 			<div class="fitem">
 			
-			 <!--	<label>文章内容:</label><textarea id="editor_id"  name="content" style="width:50px;height:50px;"></textarea> -->
-			 <textarea name="content"></textarea>
+			 <label>文章内容:</label><textarea id="editor_id"  name="content" style="width:50px;height:50px;"></textarea> 
+			 
 			</div>
 			 
 		</form>
